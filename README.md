@@ -1,31 +1,46 @@
-# Awesome Customer Event Tracking [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+<p align="center">
+  <img src="./assets/banner.svg" alt="Awesome Customer Event Tracking Banner" width="100%" />
+</p>
 
-> A curated list of leading Customer Event Tracking platforms, Customer Data Platforms (CDP), event collection pipelines, tag management systems, and self-hosted behavioral analytics tools.
+# 🎯 Awesome Customer Event Tracking
 
-**Last updated: October 2026**
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
+  <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Customer-Event-Tracking/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Customer-Event-Tracking?style=social" alt="GitHub stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Customer-Event-Tracking/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-Customer-Event-Tracking?style=social" alt="GitHub forks" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Customer-Event-Tracking/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="License: CC BY 4.0" /></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
+
+> 🚀 A curated list of leading Customer Event Tracking platforms, Customer Data Platforms (CDP), event collection pipelines, tag management systems, and self-hosted behavioral analytics tools.
+
+📅 **Last updated: October 2026**
 
 Customer Event Tracking forms the foundational telemetry layer for modern growth engineering, product analytics, conversion rate optimization (CRO), marketing attribution, and personalized user journeys. These tools capture user interactions—such as page impressions, clicks, form submissions, video engagement, shopping cart additions, and checkouts—and securely forward event streams to data warehouses, advertising networks, and SaaS destinations.
 
 ---
 
-## Table of Contents
+## 📑 Table of Contents
 
-- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
-- [SaaS & Hosted Platforms](#saas--hosted-platforms)
-- [Open-Source GitHub Projects](#open-source-github-projects)
-- [Key Architectural Trade-offs](#key-architectural-trade-offs)
-- [How to Contribute](#how-to-contribute)
-- [Disclaimer & License](#disclaimer--license)
+- [📊 Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
+- [☁️ SaaS & Hosted Platforms](#️-saas--hosted-platforms)
+- [💻 Open-Source GitHub Projects](#-open-source-github-projects)
+- [⚖️ Key Architectural Trade-offs](#️-key-architectural-trade-offs)
+- [⭐ Star History](#-star-history)
+- [💖 Support & Community](#-support--community)
+- [🤝 How to Contribute](#-how-to-contribute)
+- [📜 Disclaimer & License](#-disclaimer--license)
 
 ---
 
-## Sector Overview & Market Dynamics
+## 📊 Sector Overview & Market Dynamics
 
 The global Customer Data Platform (CDP) and event-tracking software market is estimated at **$8.2 billion to $10.5 billion in 2025–2026**, expanding at a rapid compound annual growth rate (CAGR) of ~20% to 28% driven by third-party cookie deprecation, privacy regulations (GDPR/CCPA), and AI-driven predictive personalization. The sector exhibits a **moderately concentrated market structure** where mega-cap platform providers (Alphabet/Google, Meta, Shopify, Twilio Segment) command outsized enterprise distribution, while high fragmentation persists across specialized direct-to-consumer (DTC) server-side attribution providers and warehouse-native composable CDP architectures.
 
 ---
 
-## SaaS & Hosted Platforms
+## ☁️ SaaS & Hosted Platforms
 
 The table below catalogs leading hosted event-tracking platforms, sorted in descending order by parent company scale (market capitalization or latest enterprise valuation).
 
@@ -44,7 +59,7 @@ The table below catalogs leading hosted event-tracking platforms, sorted in desc
 
 ---
 
-## Open-Source GitHub Projects
+## 💻 Open-Source GitHub Projects
 
 The table below highlights open-source customer event tracking systems, self-hosted CDPs, and privacy-first product analytics platforms, sorted in descending order by GitHub stargazers.
 
@@ -62,24 +77,41 @@ The table below highlights open-source customer event tracking systems, self-hos
 
 ---
 
-## Key Architectural Trade-offs
+## ⚖️ Key Architectural Trade-offs
 
 When designing customer event tracking infrastructure, teams generally balance three competing paradigms:
 
-1. **Client-Side Tagging vs. Server-Side Routing:**
+1. 🌐 **Client-Side Tagging vs. Server-Side Routing:**
    - *Client-Side (GTM, JS Pixels):* Simple to deploy via UI without engineering releases, but vulnerable to ad blockers, browser privacy restrictions (Safari ITP), and performance drag on page load.
    - *Server-Side (CAPI, Stape, Jitsu, RudderStack):* Highly resilient against ad blockers, enriches event payloads with CRM attributes, and eliminates third-party script vulnerabilities at the cost of infrastructure hosting fees.
 
-2. **Packaged CDPs vs. Composable CDPs:**
+2. 📦 **Packaged CDPs vs. Composable CDPs:**
    - *Packaged (Segment, Tealium):* Out-of-the-box UI, managed identity resolution graphs, and instant catalog of 500+ pre-built destinations, but expensive at scale due to MTU pricing tiers.
    - *Composable (Snowplow, Jitsu, RudderStack OSS + Warehouse):* Event data lands directly into your centralized data warehouse (ClickHouse, BigQuery, Snowflake), preventing vendor lock-in and allowing full governance over sensitive PII.
 
-3. **Shopify & Ecommerce Sandbox Constraints:**
+3. 🛒 **Shopify & Ecommerce Sandbox Constraints:**
    - Shopify's deprecation of `checkout.liquid` in favor of the **Web Pixels API** means custom pixels execute in a sandboxed Web Worker isolated from the window DOM. Generic tag managers cannot hook click listeners inside the checkout flow, necessitating either native Web Pixels API implementations or dedicated DTC tracking intermediaries (Elevar, Littledata).
 
 ---
 
-## How to Contribute
+## ⭐ Star History
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-Customer-Event-Tracking&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Customer-Event-Tracking&type=date&legend=top-left)
+
+---
+
+## 💖 Support & Community
+
+Thank you so much for exploring this curated guide! If this repository has helped you evaluate customer event tracking tools or architect your data pipeline, please consider supporting the project:
+
+- ⭐ **Star this repository** to help others discover it!
+- 🍴 **Fork and share** it with your fellow engineers, marketers, and data architects.
+- 💬 Join our discussions on [Discord](https://discord.gg/jc4xtF58Ve) to share your telemetry architectures.
+- ☕ **Buy me a coffee / Sponsor**: If you'd like to support ongoing curation and open-source martech resources, please consider sponsoring via the [GitHub Sponsor Dashboard](https://github.com/sponsors/ishandutta2007). Every contribution is deeply appreciated!
+
+---
+
+## 🤝 How to Contribute
 
 We welcome contributions from the data engineering, analytics, and open-source communities:
 
@@ -91,7 +123,7 @@ We welcome contributions from the data engineering, analytics, and open-source c
 
 ---
 
-## Disclaimer & License
+## 📜 Disclaimer & License
 
 - **Disclaimer:** This repository is an independently curated community guide. All product names, logos, brands, and registered trademarks belong to their respective owners.
 - **License:** Content is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
