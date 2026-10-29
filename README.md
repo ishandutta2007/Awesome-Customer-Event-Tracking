@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
   <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
-  <a href="https://github.com/ishandutta2007/Awesome-Customer-Event-Tracking/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Customer-Event-Tracking?style=social" alt="GitHub stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Customer-Event-Tracking/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Customer-Event-Tracking?style=social" alt="GitHub_Stars" /></a>
   <a href="https://github.com/ishandutta2007/Awesome-Customer-Event-Tracking/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-Customer-Event-Tracking?style=social" alt="GitHub forks" /></a>
   <a href="https://github.com/ishandutta2007/Awesome-Customer-Event-Tracking/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="License: CC BY 4.0" /></a>
   <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
@@ -63,7 +63,7 @@ The table below catalogs leading hosted event-tracking platforms, sorted in desc
 
 The table below highlights open-source customer event tracking systems, self-hosted CDPs, and privacy-first product analytics platforms, sorted in descending order by GitHub stargazers.
 
-| Project | GitHub Stars | License | Primary Architecture | Description & Core Focus |
+| Project | GitHub_Stars | License | Primary Architecture | Description & Core Focus |
 |:---|:---:|:---|:---|:---|
 | **[PostHog](https://github.com/PostHog/posthog)** | [![Stars](https://img.shields.io/github/stars/PostHog/posthog?style=social&color=white)](https://github.com/PostHog/posthog/stargazers) | MIT / PostHog EE | ClickHouse + Python + React | All-in-one product analytics suite providing autocapture & custom event pipelines, session replay, feature flags, A/B experimentation, and data warehouse exports. |
 | **[Umami](https://github.com/umami-software/umami)** | [![Stars](https://img.shields.io/github/stars/umami-software/umami?style=social&color=white)](https://github.com/umami-software/umami/stargazers) | MIT | Node.js + Prisma (PostgreSQL / MySQL) | Ultra-lightweight, privacy-preserving web analytics platform collecting custom events, outbound link clicks, and page metrics without third-party cookies. |
