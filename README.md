@@ -1,199 +1,97 @@
-# Awesome-Customer-Event-Tracking
+# Awesome Customer Event Tracking [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-## Top Customer Event Tracking Ecosystem
-
-
-
-**Curated List of SaaS Products & Open-Source GitHub Projects**  
-
-*Focused on Event Pipelines, Tag Management & Self-Hosted Customer Data Platforms*  
+> A curated list of leading Customer Event Tracking platforms, Customer Data Platforms (CDP), event collection pipelines, tag management systems, and self-hosted behavioral analytics tools.
 
 **Last updated: October 2026**
 
-
-
-This repository tracks notable **SaaS platforms** and **open-source projects** for **Customer Event Tracking**. These tools enable organizations to capture user interactions—page views, clicks, add-to-carts, purchases—and route that data to analytics, advertising, and warehouse destinations, forming the foundation for attribution, personalization, and product analytics.
-
-
-
-**Examples** include Shopify Pixels, Google Tag Manager, Meta Pixel, Segment, Tealium, Elevar, Littledata, RudderStack, Amplitude Analytics, and Mixpanel Events (the category leaders).
-
-
-
-**Open-source emphasis**: Customer Event Tracking is a domain where open-source tooling is **mature at the pipeline layer but requires assembly for commerce-specific workflows**. **Jitsu** (MIT, self-hostable) is the strongest open-source Segment alternative, collecting events from web, mobile, and server and delivering them to warehouses and SaaS tools with per-minute batching and no usage billing when self-hosted . **RudderStack Open Source** provides a production-grade CDP with a self-hosted data plane, though advanced features (SSO, multi-node scaling, audit logs) require the commercial plan . **Snowplow** offers an enterprise-grade behavioral data engine for rich event collection, and **Matomo** provides self-hosted analytics with ecommerce tracking via its HTTP API . The critical gap: **Shopify's ecosystem has no open-source equivalent to the Web Pixels API or commercial tracking apps**—Shopify replaced its GTM-style data layer with a sandboxed Web Pixels API that delivers typed events directly to registered pixels, and custom pixels are isolated from the DOM, making GTM a "not supported" implementation .
-
-
-
-Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
-
-
-
-## Table of Contents
-
-- [SaaS/Hosted Platforms](#saas-products)
-
-- [Open-Source GitHub Projects](#open-source-github-projects)
-
-- [How to Contribute](#how-to-contribute)
-
-- [Disclaimer](#disclaimer)
-
-
-
-## SaaS/Hosted Platforms
-
-
-
-- **[Shopify Pixels (Web Pixels API)](https://shopify.dev/docs/api/web-pixels-api)**  
-
-  Shopify's native event tracking architecture; delivers typed ecommerce events (`product_viewed`, `checkout_started`, `checkout_completed`) directly to registered pixels without a tag-manager layer . Pixels run in an isolated sandbox with no DOM access, and customer PII is nulled for apps without approved protected-data scopes . **The mandatory path for Shopify tracking in 2026**—`checkout.liquid` and additional scripts were sunset for Plus stores in August 2025, with remaining stores auto-upgraded by August 2026 .
-
-
-
-- **[Google Tag Manager](https://tagmanager.google.com/)**  
-
-  Tag management system for deploying tracking tags without code changes; widely used for GA4, Meta Pixel, and other marketing tags. **On Shopify, GTM requires a custom pixel bridge** and is explicitly "not a supported implementation"—no Preview Mode, no click/scroll triggers, and no DOM access . For non-Shopify sites, GTM remains the standard tag deployment layer.
-
-
-
-- **[Meta Pixel](https://www.facebook.com/business/tools/meta-pixel)**  
-
-  Meta's tracking pixel for Facebook and Instagram ad optimization; captures standard events (Purchase, Lead, ViewContent, AddToCart, InitiateCheckout) and custom conversions for retargeting and audience building . Supports Conversions API for server-side event delivery when paired with the pixel.
-
-
-
-- **[Segment](https://segment.com/)**  
-
-  Leading customer data platform (CDP) for collecting events from web, mobile, and server and routing them to hundreds of destinations; the benchmark against which open-source alternatives (Jitsu, RudderStack) position themselves .
-
-
-
-- **[Tealium](https://tealium.com/)**  
-
-  Enterprise CDP with **Events, Functions, and Attributes** architecture: Events capture consented user interactions via a no-code interface, Functions provide serverless JavaScript transformation and enrichment, and Attributes maintain dynamic customer profiles updated in under 200ms . Claims 850+ enterprise customers and 1,300+ integrations .
-
-
-
-- **[Elevar](https://www.getelevar.com/)**  
-
-  Shopify tracking and GTM container management service; implements server-side tracking and Enhanced Ecommerce. **Caution**: when used alongside Littledata, manual audits are required to avoid double-counting events that Littledata sends server-side .
-
-
-
-- **[Littledata](https://www.littledata.io/)**  
-
-  Shopify tracking app focused on accurate analytics and server-side tracking; works with Google Analytics and Segment as destinations . Sends `add_to_cart` and post-checkout events server-side, bypassing browser restrictions and improving conversion data accuracy for Google Ads . **Not a general CDP**—focused on Shopify-to-GA/Segment pipelines.
-
-
-
-- **[RudderStack](https://www.rudderstack.com/)**  
-
-  Customer data platform with open-source and hosted options; see open-source section for self-hosted capabilities .
-
-
-
-- **[Amplitude Analytics](https://amplitude.com/)**  
-
-  Product analytics platform with event tracking, funnels, retention, and behavioral cohorts; requires custom instrumentation or CDP integration for event collection.
-
-
-
-- **[Mixpanel Events](https://mixpanel.com/)**  
-
-  Product analytics platform with event tracking, funnels, and cohort analysis; requires SDK or API instrumentation to capture events.
-
-
-
-## Open-Source GitHub Projects
-
-
-
-### Customer Data Platforms (Segment Alternatives)
-
-
-
-- **[Jitsu](https://github.com/jitsucom/jitsu)**  
-
-  The strongest open-source **Segment alternative** available (MIT, self-hostable) . Collects events from browser, mobile, and server via SDKs, HTTP API, or a **drop-in Segment proxy** for migration without touching client code. Delivers to ClickHouse, BigQuery, Snowflake, Redshift, Postgres, S3, GCS, and dozens of SaaS tools with **per-minute batching** (vs. Segment's daily/hourly warehouse loads). Features JavaScript **Functions** for per-event transformation, connector syncs (Airbyte-compatible), user identity graph, **Live Events** for real-time debugging, and an **MCP server** for AI agent configuration. Acquired by Helium Ventures (October 2026) with continued MIT licensing and no usage limits when self-hosted . **The best starting point for organizations wanting a self-hosted event pipeline with Segment-like capabilities.**
-
-
-
-- **[RudderStack Open Source](https://github.com/rudderlabs/rudder-server)**  
-
-  Production-grade open-source CDP with a self-hosted data plane and RudderStack-hosted control plane (recommended) . Handles event collection, transformation (up to 5 transformations in OSS), and routing to destinations. **Limitations in OSS**: no SSO, no multi-node scaling, no audit logs, no Reverse ETL (or limited), and Live Events/Event Metrics only available via the hosted control plane . **Best for teams already in the RudderStack ecosystem** or willing to use the hosted control plane.
-
-
-
-### Behavioral Data Engines
-
-
-
-- **[Snowplow](https://github.com/snowplow/snowplow)**  
-
-  Enterprise-grade behavioral data engine (Scala, 6,735+ GitHub stars) for web, mobile, server-side, and webhooks; runs cloud-natively on AWS, GCP, and Azure . Provides rich event collection with structured schemas, validation, and loading to warehouses (Snowflake, Databricks, Redshift). **Heavier infrastructure** than Jitsu—requires assembling a pipeline (collector, enricher, loader) but offers the most rigorous data quality controls. Open-source Azure support via Terraform modules .
-
-
-
-### Self-Hosted Analytics with Event Tracking
-
-
-
-- **[Matomo](https://github.com/matomo-org/matomo)**  
-
-  Open-source web analytics platform with full data ownership; supports server-side event tracking via its **Tracking HTTP API** with bulk POST batches up to 500 events . Ecommerce tracking requires enabling the Ecommerce feature in site settings; orders are de-duplicated by `ec_id`, and each product requires an SKU or product_id . **Best for organizations wanting self-hosted analytics with event tracking** rather than a full CDP pipeline.
-
-
-
-### Additional Strong Open-Source Options
-
-
-
-- **No open-source Shopify tracking app exists** — Shopify's Web Pixels API is the mandatory tracking path on Shopify , and no open-source project provides a production-ready pixel that replicates commercial apps like Elevar or Littledata. Merchants must build custom pixels or use commercial solutions.
-
-- **Meta Pixel for WordPress (Official)** — Meta's official open-source WordPress plugin for pixel installation and Conversions API support . **WordPress-specific**—not applicable to Shopify or headless architectures.
-
-
-
-**Frameworks for building custom systems**: For a **self-hosted Segment replacement**, Jitsu is the most complete option with per-minute batching, Segment proxy migration, and MCP support . For **enterprise-grade behavioral data with strict schemas**, Snowplow provides the most rigorous pipeline . For **self-hosted analytics with ecommerce events**, Matomo offers a simpler path . For **Shopify specifically**, no open-source tracking app exists—the Web Pixels API is the platform's supported path, and commercial apps or custom pixel development are required .
-
-
-
-## How to Contribute
-
-
-
-1. Fork the repo.
-
-2. Add/edit entries in `README.md` (follow existing format).
-
-3. Include: name, link, 1–2 sentence description, and whether it's SaaS or open-source.
-
-4. Submit PR with a short explanation.
-
-
-
-Star the repo if you find it useful!
-
-
-
-## Disclaimer
-
-
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-
-- Customer event tracking platforms handling user behavior and personal data must comply with applicable privacy regulations (GDPR, CCPA) and consent frameworks; Shopify's Web Pixels API nulls PII for apps without approved protected-data scopes .
-
-- **Open-source customer event tracking is mature at the pipeline layer**—Jitsu, RudderStack OSS, and Snowplow provide production-grade event collection and routing . However, **Shopify's ecosystem has no open-source tracking equivalent**—the Web Pixels API is the mandatory path, and GTM on Shopify is "not a supported implementation" . Merchants requiring Shopify tracking should use the native Web Pixels API, commercial apps, or build custom pixels.
-
-- Verify license terms for commercial use; Jitsu uses MIT , RudderStack OSS has open-source licensing with commercial feature gates , Snowplow uses Apache 2.0, and Matomo uses GPL.
-
-
+Customer Event Tracking forms the foundational telemetry layer for modern growth engineering, product analytics, conversion rate optimization (CRO), marketing attribution, and personalized user journeys. These tools capture user interactions—such as page impressions, clicks, form submissions, video engagement, shopping cart additions, and checkouts—and securely forward event streams to data warehouses, advertising networks, and SaaS destinations.
 
 ---
 
+## Table of Contents
 
+- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
+- [SaaS & Hosted Platforms](#saas--hosted-platforms)
+- [Open-Source GitHub Projects](#open-source-github-projects)
+- [Key Architectural Trade-offs](#key-architectural-trade-offs)
+- [How to Contribute](#how-to-contribute)
+- [Disclaimer & License](#disclaimer--license)
 
-**Made for analytics engineers, marketing technologists, and developers building event pipelines.**  
+---
 
-Let's make customer event tracking more open, but with clear eyes about the platform-specific constraints that define what's actually possible.
+## Sector Overview & Market Dynamics
+
+The global Customer Data Platform (CDP) and event-tracking software market is estimated at **$8.2 billion to $10.5 billion in 2025–2026**, expanding at a rapid compound annual growth rate (CAGR) of ~20% to 28% driven by third-party cookie deprecation, privacy regulations (GDPR/CCPA), and AI-driven predictive personalization. The sector exhibits a **moderately concentrated market structure** where mega-cap platform providers (Alphabet/Google, Meta, Shopify, Twilio Segment) command outsized enterprise distribution, while high fragmentation persists across specialized direct-to-consumer (DTC) server-side attribution providers and warehouse-native composable CDP architectures.
+
+---
+
+## SaaS & Hosted Platforms
+
+The table below catalogs leading hosted event-tracking platforms, sorted in descending order by parent company scale (market capitalization or latest enterprise valuation).
+
+| Platform | Company Valuation / Scale | Starting Pricing | Free Tier / Trial Limit | Key Features & Best For |
+|:---|:---|:---|:---|:---|
+| **[Google Tag Manager](https://tagmanager.google.com/)** | **~$2.1 Trillion** *(Alphabet market cap)* | **$0 / month** (Free); GA360 / GTM 360 starts at **~$50,000 / year** | **100% Free forever** (Unlimited tags, triggers, variables, and containers; up to 3 concurrent workspaces) | Industry-standard tag management for client-side tag firing and GA4 / Google Ads routing. On Shopify checkout, requires custom pixel bridges. |
+| **[Meta Pixel & Conversions API](https://www.facebook.com/business/tools/meta-pixel)** | **~$1.5 Trillion** *(Meta market cap)* | **$0 / month** (API & web pixel are completely free; optional self-hosted CAPI Gateway costs ~$10–$40/mo in cloud hosting) | **100% Free forever** (Unlimited standard and custom conversion events to Meta Graph API) | Direct ad attribution and dynamic audience remarketing across Instagram and Facebook; supports server-to-server CAPI delivery. |
+| **[Shopify Pixels (Web Pixels API)](https://shopify.dev/docs/api/web-pixels-api)** | **~$130 Billion** *(Shopify market cap)* | **$0 / month** (Included natively with all Shopify subscriptions starting at $39/mo) | **Free forever** with Shopify store (No event quotas; runs in strict browser sandbox without DOM access) | Native, privacy-isolated ecommerce event tracking (`product_viewed`, `checkout_completed`) replacing deprecated `checkout.liquid` scripts. |
+| **[Segment (Twilio Segment)](https://segment.com/)** | **~$11 Billion** *(Twilio market cap; Segment acquired for $3.2B)* | **$120 / month** (Team Plan) | **Free forever** up to **1,000 Monthly Tracked Users (MTUs)**, 2 sources, 1 warehouse destination, 500k Reverse ETL records/mo | Benchmark Customer Data Platform for turnkey event routing across 450+ SaaS tools, real-time identity graphs, and warehouse syncs. |
+| **[Amplitude Analytics](https://amplitude.com/)** | **~$1.5 Billion** *(AMPL NASDAQ market cap)* | **$0 / month** (Plus plan starts free, scales with usage; e.g. ~$225/mo for 5M events/mo) | **Free forever** up to **2,000,000 events/month**, unlimited team seats, core product analytics, and 10k session replays/mo | Deep user journey mapping, behavioural cohorts, conversion funnels, retention analysis, and AI agent telemetry. |
+| **[Tealium](https://tealium.com/)** | **~$1.2 Billion** *(Last valuation; Series G)* | **$1,000 / month** *(~$12,000/year billed annually for base Data Cloud Activation)* | **No free tier**; offers a **30-day guided proof-of-concept (POC)** trial through enterprise sales | Enterprise tag management (Tealium iQ) and CDP (EventStream & AudienceStream) with sub-200ms visitor profile enrichment. |
+| **[Mixpanel Events](https://mixpanel.com/)** | **~$1.05 Billion** *(Last valuation; Series C)* | **$20 / month** (Growth Plan starting tier) | **Free forever** up to **1,000,000 events/month**, unlimited team seats, 10k session replays/mo, and core funnel reports | Product analytics focused on event stream segmentation, conversion flow analysis, and interactive cohort exploration. |
+| **[RudderStack Cloud](https://www.rudderstack.com/)** | **~$300 Million** *(Last valuation; Series B)* | **$265 / month** (Growth Plan, 1M events/mo) | **Free forever** up to **250,000 events/month**, 16+ SDKs, 200+ destinations, and up to 5 event transformations | Developer-centric CDP that turns your data warehouse (Snowflake, BigQuery, Databricks, Redshift) into a real-time event hub. |
+| **[Elevar](https://www.getelevar.com/)** | **~$100 Million+** *(Acquired by Buxton / Audiense)* | **$225 / month** (Base paid tier for low order volume) | **15-day free trial** with access to server-side GTM tracking, conversion API destinations, and event monitoring | Specialized Shopify server-side tracking, GTM container automation, and conversion deduplication for DTC ecommerce merchants. |
+| **[Littledata](https://www.littledata.io/)** | **~$20 Million** *(Estimated valuation; ~$3M ARR)* | **$0.35 / order** (Flex Plan) or **$199 / month** (Scale Plan up to 1,500 orders/mo) | **30-day free trial** capped at up to 500 tracked orders during the trial evaluation period | Server-side tracking app for Shopify and BigCommerce stores, routing high-fidelity transaction data directly to GA4 and Segment. |
+
+---
+
+## Open-Source GitHub Projects
+
+The table below highlights open-source customer event tracking systems, self-hosted CDPs, and privacy-first product analytics platforms, sorted in descending order by GitHub stargazers.
+
+| Project | GitHub Stars | License | Primary Architecture | Description & Core Focus |
+|:---|:---:|:---|:---|:---|
+| **[PostHog](https://github.com/PostHog/posthog)** | [![Stars](https://img.shields.io/github/stars/PostHog/posthog?style=social&color=white)](https://github.com/PostHog/posthog/stargazers) | MIT / PostHog EE | ClickHouse + Python + React | All-in-one product analytics suite providing autocapture & custom event pipelines, session replay, feature flags, A/B experimentation, and data warehouse exports. |
+| **[Umami](https://github.com/umami-software/umami)** | [![Stars](https://img.shields.io/github/stars/umami-software/umami?style=social&color=white)](https://github.com/umami-software/umami/stargazers) | MIT | Node.js + Prisma (PostgreSQL / MySQL) | Ultra-lightweight, privacy-preserving web analytics platform collecting custom events, outbound link clicks, and page metrics without third-party cookies. |
+| **[Plausible Analytics](https://github.com/plausible/analytics)** | [![Stars](https://img.shields.io/github/stars/plausible/analytics?style=social&color=white)](https://github.com/plausible/analytics/stargazers) | AGPL-3.0 | Elixir + ClickHouse + PostgreSQL | Lightweight (< 1 KB script) self-hosted analytics tracking custom goal conversions, custom event properties, revenue metrics, and campaigns without storing PII. |
+| **[Matomo](https://github.com/matomo-org/matomo)** | [![Stars](https://img.shields.io/github/stars/matomo-org/matomo?style=social&color=white)](https://github.com/matomo-org/matomo/stargazers) | GPL-3.0 | PHP + MySQL / MariaDB | Comprehensive open-source analytics platform with HTTP Tracking API supporting bulk batch ingestion (up to 500 events), custom dimensions, and ecommerce cart/order tracking. |
+| **[OpenReplay](https://github.com/openreplay/openreplay)** | [![Stars](https://img.shields.io/github/stars/openreplay/openreplay?style=social&color=white)](https://github.com/openreplay/openreplay/stargazers) | Elastic License | Golang + TypeScript + ClickHouse | Self-hosted session recording and customer journey replay engine capturing DOM mutations, network requests, custom events, and performance diagnostics. |
+| **[Snowplow](https://github.com/snowplow/snowplow)** | [![Stars](https://img.shields.io/github/stars/snowplow/snowplow?style=social&color=white)](https://github.com/snowplow/snowplow/stargazers) | Apache-2.0 | Scala + Cloud Data Pipelines | Enterprise behavioral data engine delivering validated, schema-governed event streams directly to Snowflake, Databricks, Redshift, and BigQuery. |
+| **[Countly](https://github.com/Countly/countly-server)** | [![Stars](https://img.shields.io/github/stars/Countly/countly-server?style=social&color=white)](https://github.com/Countly/countly-server/stargazers) | AGPL-3.0 / Commercial | Node.js + MongoDB | Real-time product analytics and event tracking platform supporting mobile, web, and IoT SDKs with granular custom crash reporting and funnel tracking. |
+| **[Jitsu](https://github.com/jitsucom/jitsu)** | [![Stars](https://img.shields.io/github/stars/jitsucom/jitsu?style=social&color=white)](https://github.com/jitsucom/jitsu/stargazers) | MIT | TypeScript + Golang + ClickHouse | Open-source Segment alternative providing drop-in Segment proxy endpoints, per-minute warehouse batch loading, serverless JS transformations, and identity resolution. |
+| **[RudderStack Server](https://github.com/rudderlabs/rudder-server)** | [![Stars](https://img.shields.io/github/stars/rudderlabs/rudder-server?style=social&color=white)](https://github.com/rudderlabs/rudder-server/stargazers) | SSPL | Golang + PostgreSQL | Production-grade open-source CDP data plane collecting, transforming (up to 5 transformations in OSS), and dispatching events to 200+ destinations and data warehouses. |
+
+---
+
+## Key Architectural Trade-offs
+
+When designing customer event tracking infrastructure, teams generally balance three competing paradigms:
+
+1. **Client-Side Tagging vs. Server-Side Routing:**
+   - *Client-Side (GTM, JS Pixels):* Simple to deploy via UI without engineering releases, but vulnerable to ad blockers, browser privacy restrictions (Safari ITP), and performance drag on page load.
+   - *Server-Side (CAPI, Stape, Jitsu, RudderStack):* Highly resilient against ad blockers, enriches event payloads with CRM attributes, and eliminates third-party script vulnerabilities at the cost of infrastructure hosting fees.
+
+2. **Packaged CDPs vs. Composable CDPs:**
+   - *Packaged (Segment, Tealium):* Out-of-the-box UI, managed identity resolution graphs, and instant catalog of 500+ pre-built destinations, but expensive at scale due to MTU pricing tiers.
+   - *Composable (Snowplow, Jitsu, RudderStack OSS + Warehouse):* Event data lands directly into your centralized data warehouse (ClickHouse, BigQuery, Snowflake), preventing vendor lock-in and allowing full governance over sensitive PII.
+
+3. **Shopify & Ecommerce Sandbox Constraints:**
+   - Shopify's deprecation of `checkout.liquid` in favor of the **Web Pixels API** means custom pixels execute in a sandboxed Web Worker isolated from the window DOM. Generic tag managers cannot hook click listeners inside the checkout flow, necessitating either native Web Pixels API implementations or dedicated DTC tracking intermediaries (Elevar, Littledata).
+
+---
+
+## How to Contribute
+
+We welcome contributions from the data engineering, analytics, and open-source communities:
+
+1. **Fork** this repository.
+2. Create a feature branch: `git checkout -b feat/add-event-tool`.
+3. Add your entry into the relevant markdown table maintaining existing schema, formatting, and sort order.
+4. Provide verifiable references for pricing, valuations, or license details.
+5. Submit a **Pull Request** detailing why the tool should be included.
+
+---
+
+## Disclaimer & License
+
+- **Disclaimer:** This repository is an independently curated community guide. All product names, logos, brands, and registered trademarks belong to their respective owners.
+- **License:** Content is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
